@@ -86,10 +86,10 @@ fussy or too forgiving for a particular child.
 | 💯 [**Jack's Big Numbers**](https://github.com/jacks-games/big-numbers) | Tens and ones, adding and taking away all the way to 100 | [▶ play](https://jacks-games.github.io/big-numbers/) |
 | 👀 [**Jack's Sight Words**](https://github.com/jacks-games/sight-words) | The twenty most common English words on big cards — tap one and hear it read out | [▶ play](https://jacks-games.github.io/sight-words/) |
 | 🍎 [**Jack's Apples**](https://github.com/jacks-games/apples) | Trace 1–20, then fill the missing numbers into the apple grid | [▶ play](https://jacks-games.github.io/apples/)  👈 **this one** |
-| 📖 [**Jack's Words**](https://github.com/jacks-games/words) | Hear a word, build it from letter tiles, then read it in a sentence | [▶ play](https://jacks-games.github.io/words/) |
 | 🥅 [**Jack's Match**](https://github.com/jacks-games/match) | Tell real words from decodable nonsense words, then spell by ear | [▶ play](https://jacks-games.github.io/match/) |
 | ✏️ [**Jack's Letters**](https://github.com/jacks-games/letters) | Finger-trace all 26 lowercase letters in the correct stroke order | [▶ play](https://jacks-games.github.io/letters/) |
 | 🔢 [**Jack's Numbers**](https://github.com/jacks-games/numbers) | Count, add and subtract with footballs — to 10, then to 20 | [▶ play](https://jacks-games.github.io/numbers/) |
+| 📖 [**Jack's Words**](https://github.com/jacks-games/words) | Hear a word, build it from letter tiles, then read it in a sentence | [▶ play](https://jacks-games.github.io/words/) |
 | ♟️ [**Jackies Schach**](https://github.com/jacks-games/chess) | Full FIDE rules with a coach that marks the safe squares (German) | [▶ play](https://jacks-games.github.io/chess/) |
 
 All ten on one start page: **[jackbenn.ing](https://jackbenn.ing)** — newest first, homework on top, chess always last.
@@ -97,12 +97,13 @@ All ten on one start page: **[jackbenn.ing](https://jackbenn.ing)** — newest f
 ## 🛠 Built like this
 
 Every game in this organisation is **one self-contained `index.html`** — no build step, no
-framework, no package manager, no analytics, and no network calls once the page has loaded.
+framework, no package manager, no analytics, and no network calls beyond its own voice clips.
 That is a deliberate constraint: a game a child depends on should still work in five years,
 and a parent should be able to read the whole thing in one sitting.
 
-- **Speech** — the browser's Web Speech API, preferring a British English voice. It always
-  waits for a tap first, because Chrome and iOS block audio without user activation.
+- **Speech** — pre-rendered clips of the neural `en-GB-SoniaNeural` voice, played through Web Audio,
+  with the Web Speech API as the fallback. The `AudioContext` is created inside the ▶ tap,
+  because iOS refuses to start audio any other way.
 - **Progress** — kept in `localStorage` on the device. Nothing is collected, sent or stored
   anywhere else.
 - **Made for** an iPad mini in either orientation: finger-sized targets, no hover-only
