@@ -97,7 +97,8 @@ All ten on one start page: **[jackbenn.ing](https://jackbenn.ing)** — newest f
 ## 🛠 Built like this
 
 Every game in this organisation is **one self-contained `index.html`** — no build step, no
-framework, no package manager, no analytics, and no network calls beyond its own voice clips.
+framework, no package manager, no analytics, and no network calls beyond its own voice clips (chess also loads its rules engine, chess.js, from
+jsDelivr, and Sight Words its font from Google Fonts).
 That is a deliberate constraint: a game a child depends on should still work in five years,
 and a parent should be able to read the whole thing in one sitting.
 
